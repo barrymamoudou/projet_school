@@ -64,9 +64,6 @@
             <li><a href="{{route('password.view')}}"><i class="ti-more"></i>Change Password</a></li>
           </ul>
         </li>
-
-        <li class="header nav-small-cap">User Interface</li>
-		  
         <li class="treeview">
             <a href="#">
               <i data-feather="credit-card"></i> <span>Setup Management</span>
@@ -75,9 +72,9 @@
               </span>
             </a>
           <ul class="treeview-menu">
-          <li><a href="{{ route('student.class.view') }}"><i class="ti-more"></i>Student Class</a></li>
-             
-            </ul>
+            <li><a href="{{ route('student.class.view') }}"><i class="ti-more"></i>Student Class</a></li>
+            <li><a href="{{ route('student.year.view') }}"><i class="ti-more"></i>Student Year</a></li>
+          </ul>
         </li>
 
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setup\StudentController;
+use App\Http\Controllers\Backend\Setup\YearController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,10 +62,19 @@ Route::prefix('profile')->group(function () {
 });
 
 Route::prefix('setup')->group(function () {
+    // les routes de classe 
     Route::get('student/class/view', [StudentController::class, 'StudentClassView'])->name('student.class.view');
     Route::get('student/class/add', [StudentController::class, 'StudentClassAdd'])->name('student.class.add');
     Route::post('student/class/store', [StudentController::class, 'StudentClassStore'])->name('store.student.class');
     Route::get('student/class/edit/{id}', [StudentController::class, 'StudentClassEdit'])->name('student.class.edit');
     Route::post('student/class/update/{id}', [StudentController::class, 'StudentClassUpdate'])->name('update.student.class');
     Route::get('student/class/delete/{id}', [StudentController::class, 'StudentClassDelete'])->name('student.class.delete');
+
+    // les routes de l'annee
+
+    Route::get('student/year/view', [YearController::class, 'StudentYearView'])->name('student.year.view');
+    Route::get('student/year/add', [YearController::class, 'StudentYearAdd'])->name('student.year.add');
+    Route::post('student/year/store', [StudentController::class, 'StudentYearStore'])->name('store.student.year');
+
+
 });
