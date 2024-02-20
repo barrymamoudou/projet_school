@@ -11,11 +11,11 @@ class StudentShiftController extends Controller
     
     public function ViewShift(){
         $data['allData'] = StudentShift::all();
-    	return view('backend.setup.shift.view_shift',$data);
+    	return view('backend.setup.shift.index',$data);
     }
 
     public function StudentShiftAdd(){
-        return view('backend.setup.shift.add_shift');
+        return view('backend.setup.shift.add');
     }
 
     public function StudentShiftStore(Request $request){
@@ -38,7 +38,7 @@ class StudentShiftController extends Controller
 
     public function StudentShiftEdit($id){
         $editData = StudentShift::find($id);
-        return view('backend.setup.shift.edit_shift',compact('editData')); 
+        return view('backend.setup.shift.edit',compact('editData')); 
     }
 
     public function StudentShiftUpdate(Request $request,$id){

@@ -11,11 +11,11 @@ class StudentGroupController extends Controller
     public function ViewGroup(){
 
         $data['allData'] = StudentGroup::all();
-    	return view('backend.setup.group.view_group',$data);
+    	return view('backend.setup.group.index',$data);
     }
 
     public function StudentGroupAdd(){
-        return view('backend.setup.group.add_group');
+        return view('backend.setup.group.add');
     }
 
     public function StudentGroupStore(Request $request){
@@ -39,7 +39,7 @@ class StudentGroupController extends Controller
 
     public function StudentGroupEdit($id){
         $editData = StudentGroup::find($id);
-        return view('backend.setup.group.edit_group',compact('editData'));
+        return view('backend.setup.group.edit',compact('editData'));
     }
 
     public function StudentGroupUpdate(Request $request,$id){
