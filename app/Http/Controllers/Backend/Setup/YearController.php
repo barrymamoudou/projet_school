@@ -10,16 +10,16 @@ class YearController extends Controller
 {
     public function StudentYearView(){
         $data['allData'] =StudentYear::all();
-        return view('backend.setup.student_class.index',$data);
+        return view('backend.setup.student_year.index',$data);
     }
 
     public function StudentYearAdd(){
-        return view('backend.setup.student_class.add');
+        return view('backend.setup.student_year.add');
     }
 
     public function StudentYearStore(Request $request){
         $validatedData = $request->validate([
-    		'name' => 'required|unique:student_classes,name',
+    		'name' => 'required|unique:student_years,name',
     		
     	]);
 
@@ -32,13 +32,14 @@ class YearController extends Controller
     		'alert-type' => 'success'
     	);
 
-    	return redirect()->route('student.class.view')->with($notification);
+    	return redirect()->route('student.year.view')->with($notification);
 
     }
 
     public function StudentYearEdit($id){
+
        $editData =StudentYear::find($id);
-        return view('backend.setup.student_class.edit',compact('editData'));
+        return view('backend.setup.student_year.edit',compact('editData'));
     }
 
     public function StudentYearUpdate(Request $request, $id){
@@ -51,7 +52,7 @@ class YearController extends Controller
     		'message' => 'Student Class Updated Successfully',
     		'alert-type' => 'success'
     	);
-        return redirect()->route('student.class.view')->with($notification);
+        return redirect()->route('student.year.view')->with($notification);
 
     }
 
@@ -63,7 +64,7 @@ class YearController extends Controller
     		'message' => 'Student Class Delete Successfully',
     		'alert-type' => 'success'
     	);
-        return redirect()->route('student.class.view')->with($notification);
+        return redirect()->route('student.year.view')->with($notification);
     }
 
 }

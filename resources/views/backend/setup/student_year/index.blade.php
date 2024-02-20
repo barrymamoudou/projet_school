@@ -4,8 +4,7 @@
 
 <div class="content-wrapper">
 	<div class="container-full">
-		<!-- Content Header (Page header) -->
-		<!-- Main content -->
+		
 		<section class="content">
 			<div class="row">
 				<div class="col-12">
@@ -24,7 +23,6 @@
 												<th width="5%">SL</th>  
 												<th>Name</th> 
 												<th width="25%">Action</th>
-												
 											</tr>
 										</thead>
 										<tbody>
@@ -34,7 +32,7 @@
 												<td> {{ $year->name }}</td>				 
 												<td>
 												<a href="{{ route('student.year.edit',$year->id) }}" class="btn btn-info">Edit</a>
-												<a href="{{ route('student.year.delete',$year->id) }}" class="btn btn-danger" id="delete">Delete</a>
+												<a href="{{ route('student.year.delete',$year->id) }}" class="btn btn-danger" id="delet">Delete</a>
 												</td>
 											</tr>
 											@endforeach
