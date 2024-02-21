@@ -6,13 +6,13 @@
         <section class="content">
             <div class="box">
                     <div class="box-header with-border">
-                        <h4 class="box-title">Add Fee Amount</h4>
+                        <h4 class="box-title">Edit Fee Amount</h4>
                     </div>
 
                 <div class="box-body">
                     <div class="row">
                         <div class="col">
-                        <form action="{{route('store.fee.amount')}}" method="post">
+                        <form action="{{route('update.fee.amount',$editData[0]->fee_category_id)}}" method="post">
                             @csrf
                             <div class="col-12">
                                 <div class="add_item">
@@ -22,20 +22,22 @@
                                             <select name="fee_category_id" required="" class="form-control">
                                                 <option value="" selected="" disabled="">Select Fee Category</option>
                                                 @foreach($fee_categories as $category)
-                                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                                    <option value="{{$category->id}}" {{ ($editData[0]->fee_category_id==$category->id) ? "selected" : "" }}>{{$category->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
-                                    </div> <!-- // end form group -->  
+                                    </div> <!-- // end form group -->
+                                    @foreach($editData as $edit) 
+                                    <div class="delete_extra_item">
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <h5>Fee Class<span class="text-danger">*</span></h5>
                                                     <div class="controls">
                                                         <select name="class_id[]" required="" class="form-control">
-                                                            <option value="" selected="" disabled="">Select Fee Category</option>
+                                                            <option value="" selected="" disabled="">Select Class</option>
                                                             @foreach($classes as $classe)
-                                                            <option value="{{$classe->id}}">{{$classe->name}}</option>
+                                                            <option value="{{$classe->id}}" {{ ($edit->class_id==$classe->id) ? 'selected' : ""}} >{{$classe->name}}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -45,7 +47,7 @@
                                             <div class="form-group">
                                                 <h5>Amount <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="text" name="amount[]" class="form-control" > 
+                                                    <input type="text" name="amount[]" value="{{$edit->amount}}" class="form-control" > 
                                                 </div> <!-- // end form group -->    
                                             </div>
                                     
@@ -55,6 +57,8 @@
                                             <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i></span>    		
                                         </div>
                                     </div>  <!-- // end row -->
+                                    </div> 
+                                    @endforeach
                                 </div>
                             </div>  
                             <div class="text-xs-right">
@@ -113,8 +117,7 @@
             $(this).closest(".delete_extra_item").remove();
             counter -=1;
         });
-        
-
+      
     });
 </script>
 
