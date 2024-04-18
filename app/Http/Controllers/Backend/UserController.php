@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
     public function UserView(){
-        $data['alldata'] = User::all();
+        $data['alldata'] = User::where('usertype', 'Admin')->get();
         return view('backend.users.view_users',$data);
         
     }
@@ -25,10 +25,13 @@ class UserController extends Controller
         ]);
 
         $data=new User();
-        $data->usertype = $request->usertype;
+        $code =rand(0000,9999);
+        $data->role = $request->role;
+        $data->usertype = 'Admin';
         $data->email = $request->email;
         $data->name = $request->name;
-        $data->password = bcrypt($request->password);
+        $data->password = bcrypt($request->code);
+        $data->code=$code;
         $data->save();
         $notification = array(
             'message' => 'Enregistrement reussir avec success',
@@ -46,9 +49,9 @@ class UserController extends Controller
 
     public function UserUpdate(Request $request,$id){
         $data=User::find($id);
-        $data->usertype = $request->usertype;
         $data->email = $request->email;
         $data->name = $request->name;
+        $data->role = $request->role;
         $data->save();
         $notification = array(
             'message' => 'Modification reussir avec success',

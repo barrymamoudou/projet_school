@@ -113,8 +113,6 @@
             $(this).closest(".delete_extra_item").remove();
             counter -=1;
         });
-        
-
     });
 </script>
 

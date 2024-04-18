@@ -10,18 +10,12 @@
 		<!-- Main content -->
 		<section class="content">
 		  <div class="row">
-			  
-			 
-
 			<div class="col-12">
-
 			 <div class="box">
 				<div class="box-header with-border">
 				  <h3 class="box-title"> Fee Amount Details</h3>
-	                <a href="{{ route('fee.amount.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Fee Amount</a>			  
-
 				</div>
-				<!-- /.box-header -->
+				<!-- /.box-header  -->
 				<div class="box-body">
 
                     <h4><strong>Fee Category : </strong>{{ $detailsData['0']['fee_cateogry']['name'] }} </h4>					
