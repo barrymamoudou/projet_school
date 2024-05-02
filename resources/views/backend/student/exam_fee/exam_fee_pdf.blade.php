@@ -40,9 +40,9 @@
 
     <td><h2>Easy School ERP</h2>
 <p>School Address</p>
-<p>Phone : 624201460</p>
-<p>Email : Mamoudoubarry@gmail.com</p>
-<p> <b> Student Monthly Fee</b> </p>
+<p>Phone : 343434343434</p>
+<p>Email : support@easylerningbd.com</p>
+<p> <b> Student Exam Fee</b> </p>
     </td> 
   </tr>
   
@@ -50,11 +50,11 @@
 </table>
 
 @php 
-$registrationfee = App\Models\FeeCategoryAmount::where('fee_category_id','3')->where('class_id',$details->class_id)->first();
-$originalfee = $registrationfee->amount;
+$registrationfee = App\Models\FeeCategoryAmount::where('fee_category_id','4')->where('class_id',$details->class_id)->first();
+$original=$registrationfee->amount;
         $discount = $details['discount']['discount'];
-        $discounttablefee = $discount/100*$originalfee;
-        $finalfee = (float)$originalfee-(float)$discounttablefee;
+        $discounttable = $discount/100*$original;
+        $originalfinal = (float)$original-(float)$discounttable;
 
 @endphp 
 
@@ -81,11 +81,7 @@ $originalfee = $registrationfee->amount;
     <td>{{ $details['student']['name'] }}</td>
   </tr>
 
-  <tr>
-    <td>4</td>
-    <td><b>Father's Name</b></td>
-    <td>{{ $details['student']['fname'] }}</td>
-  </tr>
+   
   <tr>
     <td>5</td>
     <td><b>Session</b></td>
@@ -98,8 +94,8 @@ $originalfee = $registrationfee->amount;
   </tr>
   <tr>
     <td>7</td>
-    <td><b>Monthly Fee</b></td>
-    <td>{{ $originalfee }} $</td>
+    <td><b>Exam Fee</b></td>
+    <td>{{ $original }} $</td>
   </tr>
   <tr>
     <td>8</td>
@@ -109,8 +105,8 @@ $originalfee = $registrationfee->amount;
 
     <tr>
     <td>9</td>
-    <td><b>Fee For this Student of {{ $month }} </b></td>
-    <td>{{ $finalfee }} $</td>
+    <td><b>Fee For this Student of {{ $exam_type }} </b></td>
+    <td>{{ $originalfinal }} $</td>
   </tr>
  
     
@@ -144,11 +140,7 @@ $originalfee = $registrationfee->amount;
     <td>{{ $details['student']['name'] }}</td>
   </tr>
 
-  <tr>
-    <td>4</td>
-    <td><b>Father's Name</b></td>
-    <td>{{ $details['student']['fname'] }}</td>
-  </tr>
+  
   <tr>
     <td>5</td>
     <td><b>Session</b></td>
@@ -161,8 +153,8 @@ $originalfee = $registrationfee->amount;
   </tr>
   <tr>
     <td>7</td>
-    <td><b>Monthly Fee</b></td>
-    <td>{{ $originalfee }} $</td>
+    <td><b>Exam Fee</b></td>
+    <td>{{ $original }} $</td>
   </tr>
   <tr>
     <td>8</td>
@@ -172,8 +164,8 @@ $originalfee = $registrationfee->amount;
 
     <tr>
     <td>9</td>
-   <td><b>Fee For this Student of {{ $month }} </b></td>
-    <td>{{ $finalfee }} $</td>
+   <td><b>Fee For this Student of {{ $exam_type }} </b></td>
+    <td>{{ $originalfinal }} $</td>
   </tr>
  
     
@@ -181,12 +173,6 @@ $originalfee = $registrationfee->amount;
 </table>
 <br> <br>
   <i style="font-size: 10px; float: right;">Print Data : {{ date("d M Y") }}</i>
-
-
-
-
-
-
 
 </body>
 </html>

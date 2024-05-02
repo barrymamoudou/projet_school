@@ -19,7 +19,7 @@
 			</div>
       </div>
       
-      <!-- sidebar menu-->
+      <!-- sidebar menu  -->
       <ul class="sidebar-menu" data-widget="tree">  
         
           <li class="{{ ($route == 'dashboard')?'active':'' }}">
@@ -28,6 +28,7 @@
             <span>Dashboard</span>
             </a>
           </li>  
+         
           @if(Auth()->user()->role=='Admin')
           <li class="treeview {{($prefix== '/users') ? 'active': ''}} ">
             <a href="#">
@@ -87,18 +88,33 @@
             <li><a href="{{ route('student.reg.view')}}"><i class="ti-more"></i>Student Registration</a></li>
             
             <li><a href="{{ route('student.roll.view')}}"><i class="ti-more"></i>Roll Generate</a></li>
-
-           
             <li><a href="{{ route('registration.fee.view') }}"><i class="ti-more"></i>Registration Fee </a></li>
             <li><a href="{{route('monthly.fee.view')}}"><i class="ti-more"></i>Monthly Fee </a></li>
-            <li><a href=""><i class="ti-more"></i>Exam Fee </a></li>
+            <li><a href="{{ route('exam.fee.view') }}"><i class="ti-more"></i>Exam Fee </a></li>
             
           </ul>
         </li>
 
+        <li class="treeview {{ ($prefix == '/employees')?'active':'' }}">
+          <a href="#">
+            <i data-feather="package"></i> <span>Employee Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+            <ul class="treeview-menu">
+              <li  class="{{ ($route == 'employee.registration.view')?'active':'' }}">
+                <a href="{{ route('employee.registration.view') }}"><i class="ti-more"></i>Employee Registration </a>
+              </li>
+              <li  class="{{ ($route == 'employee.salary.view')?'active':'' }}">
+                <a href="{{ route('employee.salary.view') }}"><i class="ti-more"></i>Employee Salary </a>
+              </li>
+            </ul>
+        </li>
+
       </ul>
     </section>
-	
+    
 	<div class="sidebar-footer">
 		<!-- item-->
 		<a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings" aria-describedby="tooltip92529"><i class="ti-settings"></i></a>

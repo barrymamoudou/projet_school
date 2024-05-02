@@ -34,7 +34,7 @@ class StudentRegController extends Controller
 
         $data['year_id']= $request->year_id;
     	$data['class_id']= $request->class_id;
-        $data['alldata']= AssignStudent::where('year_id', $request->year_id)->where('class_id',$request->year_id)->get();
+        $data['alldata']= AssignStudent::where('year_id', $request->year_id)->where('class_id',$request->class_id)->get();
         return view('backend.student.student_reg.student_view', $data);
     }
 
