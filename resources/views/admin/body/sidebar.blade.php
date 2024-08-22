@@ -109,7 +109,23 @@
               <li  class="{{ ($route == 'employee.salary.view')?'active':'' }}">
                 <a href="{{ route('employee.salary.view') }}"><i class="ti-more"></i>Employee Salary </a>
               </li>
+              <li><a href="{{ route('employee.leave.view') }}"><i class="ti-more"></i>Employee Leave</a></li>
+              <li><a href="{{ route('employee.attendance.view') }}"><i class="ti-more"></i>Employee Attendance</a></li>
+              <li><a href="{{ route('employee.monthly.salary') }}"><i class="ti-more"></i>Employee Monthly Salary</a></li>
             </ul>
+        </li>
+
+
+        <li class="treeview {{ ($prefix== '/marks') ? 'active': ''}}">
+            <a href="#">
+              <i data-feather="hard-drive"></i></i> <span>Marks</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+          <ul class="treeview-menu">
+            <li class="{{ ($route== 'marks.entry.add') ? 'active': ''}}"><a href="{{ route('marks.entry.add')}}"><i class="ti-more"></i>Student Makrs</a></li> 
+          </ul>
         </li>
 
       </ul>

@@ -73,7 +73,6 @@ class StudentRegController extends Controller
                 }
             }
             $final_id_no= $checkAnne.$id_no;
-
         // les information de l'etudiant dans le user 
             $user=new User();
             $code = rand(0000,9999);

@@ -2,10 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\LeavePurpose;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class EmployeeLeave extends Model
 {
     use HasFactory;
+    public function user(){
+    	return $this->belongsTo(User::class,'employee_id','id');
+    }
+
+     public function purpose(){
+    	return $this->belongsTo(LeavePurpose::class,'leave_purpose_id','id');
+    }
 }
